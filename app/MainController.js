@@ -1,4 +1,4 @@
-angular.module('main').controller('Main', function($scope, CosmonautService, $uibModal){
+angular.module('main').controller('Main', function($scope, CosmonautService, $mdDialog){
 	$scope.cosmonaut = {
 		firstName: '',
 		surname: '',
@@ -22,20 +22,20 @@ angular.module('main').controller('Main', function($scope, CosmonautService, $ui
 	];
 
 	$scope.addNewCosmonaut = function(){
-		CosmonautService.addNewCosmonaut($scope.cosmonaut).then(getAllCosmonauts);
+		CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push($scope.cosmonaut));
 	};
 
 	$scope.removeCosmonaut = function(cosmonaut){
-		var modalInstance = $uibModal.open({
-            templateUrl: 'js/remove-cosmonaut/remove-cosmonaut.html',
-            controller: 'RemoveCosmonautController',
-            resolve: {
-                cosmonaut: cosmonaut
-            }
-        };
-		modalInstance.result.then(function(){
-            $scope.cosmonauts.splice(index, 1)
-        });
+		var confirm = $mdDialog.confirm()
+		    .title('Smazat kosmonauta')
+		    .textContent('Opravdu chcete kosmonauta smazat?')
+		    .ariaLabel('Lucky day')
+		    .ok('Ano')
+		    .cancel('Ne');
+
+		$mdDialog.show(confirm).then(function() {
+    		$scope.cosmonauts.splice(cosmonaut, 1)
+    	});
 	};
 
 	function getAllCosmonauts(){

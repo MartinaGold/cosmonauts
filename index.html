@@ -30,7 +30,7 @@
                 <label>Superschopnost</label>
                 <input ng-model="cosmonaut.superpower">
             </form>
-            <md-button>Přidat</md-button>
+            <md-button ng-click="addNewCosmonaut()">Přidat</md-button>
         </md-content>
       </div>
       <div>
@@ -68,7 +68,6 @@
 
     <script src="app/app.js"></script>
     <script src="app/MainController.js"></script>
-    <script src="app/remove-cosmonaut/RemoveCosmonaut.js"></script>
     <script src="app/MainService.js"></script>
   </body>
 </html>
