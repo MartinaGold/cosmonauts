@@ -7,62 +7,57 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 </head>
   <body ng-controller="Main" ng-cloak>
-    <h3 class="md-headline">Elektronická evidence kosmonautů</h3>
-
-    <div layout="column" ng-cloak class="md-inline-form">
-      <md-content layout-padding>
-        <div class="form-container"> 
-          <form name="cosmonautForm">
-            <div layout-gt-sm="row">
+    <md-card class="cosmonaut-form-container">
+      <div layout="column" ng-cloak class="md-inline-form">
+        <h3 class="md-headline">Elektronická evidence kosmonautů</h3>
+        <md-content layout-padding>
+            <form name="cosmonautForm">
+              <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>First name</label>
+                  <input ng-model="cosmonaut.firstName" flex-gt-sm>
+                </md-input-container>
+              </div>
               <md-input-container class="md-block" flex-gt-sm>
-                <label>First name</label>
-                <input ng-model="cosmonaut.firstName">
+                <label>Surname</label>
+                <input ng-model="cosmonaut.surname">
               </md-input-container>
-            </div>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Datum narození</label>
+                <input ng-model="cosmonaut.birthdate">
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Superschopnost</label>
+                <input ng-model="cosmonaut.superpower">
+            </form>
+            <md-button>Přidat</md-button>
+        </md-content>
+        
+      </div>
 
-            <md-input-container class="md-block">
-              <label>Surname</label>
-              <input ng-model="cosmonaut.surname">
-            </md-input-container>
-
-            <md-input-container class="md-block">
-              <label>Datum narození</label>
-              <input ng-model="cosmonaut.birthdate">
-            </md-input-container>
-
-            <md-input-container class="md-block">
-              <label>Superschopnost</label>
-              <input ng-model="cosmonaut.superpower">
-            </md-input-container>
-          </form>
-          <md-button>Přidat</md-button>
-        </div>
-      </md-content>
-    </div>
-
-    <div>
-      <table class="table table-bordered table-hover table-striped">
-        <thead>
-          <tr>
-              <th>Jméno</th>                   
-              <th>Příjmení</th>
-              <th>Datum narození</th>
-              <th>Superschopnost</th>
-              <th></th>
-          </tr>
-        </thead>
-        <tbody ng-repeat="cosmonaut in cosmonauts track by $index">
-          <tr>
-              <td>{{cosmonaut.firstName}}</td>
-              <td>{{cosmonaut.surname}}</td>
-              <td>{{cosmonaut.birthdate}}</td>
-              <td>{{cosmonaut.superpower}}</td>
-              <td><md-button ng-click="removeCosmonaut($index)">Odebrat</md-button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
+      <div>
+        <table class="table table-bordered table-hover table-striped">
+          <thead>
+            <tr>
+                <th>Jméno</th>                   
+                <th>Příjmení</th>
+                <th>Datum narození</th>
+                <th>Superschopnost</th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody ng-repeat="cosmonaut in cosmonauts track by $index">
+            <tr>
+                <td>{{cosmonaut.firstName}}</td>
+                <td>{{cosmonaut.surname}}</td>
+                <td>{{cosmonaut.birthdate}}</td>
+                <td>{{cosmonaut.superpower}}</td>
+                <td><md-button ng-click="removeCosmonaut($index)">Odebrat</md-button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </md-card>
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -70,13 +65,11 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-    <script src="js/MainService.js"></script>
-
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-    <script src="js/app.js"></script>
-    <script src="js/main.js"></script>
-    
+    <script src="app/app.js"></script>
+    <script src="app/MainController.js"></script>
+    <script src="app/MainService.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-angular.module('main').controller('Main', function($scope, MainService){
+angular.module('main').controller('Main', function($scope, CosmonautService){
 	$scope.cosmonaut = {
 		firstName: '',
 		surname: '',
@@ -22,15 +22,15 @@ angular.module('main').controller('Main', function($scope, MainService){
 	];
 
 	$scope.addNewCosmonaut = function(){
-		MainService.addNewCosmonaut($scope.cosmonaut).then(getAllCosmonauts);
+		CosmonautService.addNewCosmonaut($scope.cosmonaut).then(getAllCosmonauts);
 	};
 
 	$scope.removeCosmonaut = function(index){
-		MainService.removeCosmonaut(index).then(getAllCosmonauts);
+		CosmonautService.removeCosmonaut(index).then(getAllCosmonauts);
 	};
 
 	function getAllCosmonauts(){
-		MainService.getAllCosmonauts().then(function(cosmonauts){
+		CosmonautService.getAllCosmonauts().then(function(cosmonauts){
 			$scope.cosmonauts = cosmonauts;
 		});
 	}
