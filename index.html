@@ -32,9 +32,7 @@
             </form>
             <md-button>Přidat</md-button>
         </md-content>
-        
       </div>
-
       <div>
         <table class="table table-bordered table-hover table-striped">
           <thead>
@@ -52,7 +50,7 @@
                 <td>{{cosmonaut.surname}}</td>
                 <td>{{cosmonaut.birthdate}}</td>
                 <td>{{cosmonaut.superpower}}</td>
-                <td><md-button ng-click="removeCosmonaut($index)">Odebrat</md-button></td>
+                <td><md-button ng-click="removeCosmonaut(cosmonaut)">Odebrat</md-button></td>
             </tr>
           </tbody>
         </table>
@@ -70,6 +68,7 @@
 
     <script src="app/app.js"></script>
     <script src="app/MainController.js"></script>
+    <script src="app/remove-cosmonaut/RemoveCosmonaut.js"></script>
     <script src="app/MainService.js"></script>
   </body>
 </html>

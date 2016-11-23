@@ -1,4 +1,4 @@
-angular.module('main').controller('Main', function($scope, CosmonautService){
+angular.module('main').controller('Main', function($scope, CosmonautService, $uibModal){
 	$scope.cosmonaut = {
 		firstName: '',
 		surname: '',
@@ -25,8 +25,17 @@ angular.module('main').controller('Main', function($scope, CosmonautService){
 		CosmonautService.addNewCosmonaut($scope.cosmonaut).then(getAllCosmonauts);
 	};
 
-	$scope.removeCosmonaut = function(index){
-		CosmonautService.removeCosmonaut(index).then(getAllCosmonauts);
+	$scope.removeCosmonaut = function(cosmonaut){
+		var modalInstance = $uibModal.open({
+            templateUrl: 'js/remove-cosmonaut/remove-cosmonaut.html',
+            controller: 'RemoveCosmonautController',
+            resolve: {
+                cosmonaut: cosmonaut
+            }
+        };
+		modalInstance.result.then(function(){
+            $scope.cosmonauts.splice(index, 1)
+        });
 	};
 
 	function getAllCosmonauts(){
