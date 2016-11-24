@@ -1,6 +1,6 @@
-angular.module('main').directive('cosmonaut', function(){
+angular.module('main').directive('cosmonautRecords', function(){
 	return {
-		templateUrl: 'app/cosmonaut-records/cosmonaut.html',
+		templateUrl: 'app/cosmonaut-records/cosmonaut-records.html',
 		controller: function($scope, CosmonautService, $mdDialog){
 			$scope.cosmonaut = {
 				firstName: '',
@@ -25,7 +25,9 @@ angular.module('main').directive('cosmonaut', function(){
 				    .cancel('Ne');
 
 				$mdDialog.show(confirm).then(function() {
-		    		$scope.cosmonauts.splice(index, 1)
+		    		CosmonautService.removeCosmonaut(/*cosmonautId*/).then(function(){
+		    			$scope.cosmonauts.splice(index, 1)
+		    		});		
 		    	});
 			};
 
