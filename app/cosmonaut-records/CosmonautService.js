@@ -42,15 +42,16 @@ app.factory('CosmonautService', function($http, $q){
         });
     };
 
-    cosmonautService.removeCosmonaut = function(index){
+    cosmonautService.removeCosmonaut = function()/*(cosmonautId)*/{
         return $q(function(resolve, reject){
-            $http.post('url', index, function(data){
+            resolve();
+            /*$http.post('url', index, function(data){
                 if( ! data){
                     return reject();
                 }
                 
                 return resolve(data);
-            });
+            });*/
         });
     };
 

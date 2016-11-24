@@ -8,8 +8,9 @@ angular.module('main').directive('cosmonaut', function(){
 				birthdate: '',
 				superpower: ''
 			};
+			$scope.cosmonauts = [];
 
-			getAllCosmonauts();
+			initAllCosmonauts();
 
 			$scope.addNewCosmonaut = function(){
 				CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push(angular.copy($scope.cosmonaut)));
@@ -32,7 +33,7 @@ angular.module('main').directive('cosmonaut', function(){
 				return form.$valid;
 			};
 
-			function getAllCosmonauts(){
+			function initAllCosmonauts(){
 				CosmonautService.getAllCosmonauts().then(function(cosmonauts){
 					$scope.cosmonauts = cosmonauts;
 				});
