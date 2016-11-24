@@ -22,7 +22,9 @@ angular.module('main').controller('Main', function($scope, CosmonautService, $md
 	];
 
 	$scope.addNewCosmonaut = function(){
-		CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push($scope.cosmonaut));
+		CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push(angular.copy($scope.cosmonaut))).then(function(){
+			$scope.cosmonaut = '';
+		});
 	};
 
 	$scope.removeCosmonaut = function(index){
@@ -34,7 +36,7 @@ angular.module('main').controller('Main', function($scope, CosmonautService, $md
 		    .cancel('Ne');
 
 		$mdDialog.show(confirm).then(function() {
-    		$scope.cosmonauts.splice(cosmonaut, 1)
+    		$scope.cosmonauts.splice(index, 1)
     	});
 	};
 
