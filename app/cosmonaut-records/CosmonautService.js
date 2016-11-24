@@ -18,18 +18,18 @@ app.factory('CosmonautService', function($http, $q){
 
 	cosmonautService.getAllCosmonauts = function(){
         return $q(function(resolve, reject){
-            resolve(cosmonauts = [
+            resolve([
                 {
                     firstName: 'Karel',
                     surname: 'Novak',
                     birthdate: '10. 5. 1986',
-                    superpower: 'fir'
+                    superpower: 'fire'
                 },
                 {
                     firstName: 'Karel',
                     surname: 'Novak',
                     birthdate: '10. 5. 1986',
-                    superpower: 'fir'
+                    superpower: 'fire'
                 }
             ]);
             /*$http.get('url', {}, function(data){
