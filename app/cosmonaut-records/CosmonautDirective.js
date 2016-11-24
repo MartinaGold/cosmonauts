@@ -1,6 +1,6 @@
 angular.module('main').directive('cosmonaut', function(){
 	return {
-		templateUrl: 'app/cosmonaut/cosmonaut.html',
+		templateUrl: 'app/cosmonaut-records/cosmonaut.html',
 		controller: function($scope, CosmonautService, $mdDialog){
 			$scope.cosmonaut = {
 				firstName: '',
@@ -9,20 +9,7 @@ angular.module('main').directive('cosmonaut', function(){
 				superpower: ''
 			};
 
-			$scope.cosmonauts = [
-				{
-					firstName: 'Karel',
-					surname: 'Novak',
-					birthdate: '10. 5. 1986',
-					superpower: 'fir'
-				},
-				{
-					firstName: 'Karel',
-					surname: 'Novak',
-					birthdate: '10. 5. 1986',
-					superpower: 'fir'
-				}
-			];
+			getAllCosmonauts();
 
 			$scope.addNewCosmonaut = function(){
 				CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push(angular.copy($scope.cosmonaut)));

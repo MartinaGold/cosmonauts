@@ -6,7 +6,7 @@ app.factory('CosmonautService', function($http, $q){
 	cosmonautService.addNewCosmonaut = function (cosmonaut){
 		return $q(function(resolve, reject){
             resolve();
-            /*$http.post('', cosmonaut, function (data) {
+            /*$http.post('url', cosmonaut, function (data) {
                 if( ! data){
                     return reject();
                 }
@@ -18,19 +18,33 @@ app.factory('CosmonautService', function($http, $q){
 
 	cosmonautService.getAllCosmonauts = function(){
         return $q(function(resolve, reject){
-            $http.get('', {}, function(data){
+            resolve(cosmonauts = [
+                {
+                    firstName: 'Karel',
+                    surname: 'Novak',
+                    birthdate: '10. 5. 1986',
+                    superpower: 'fir'
+                },
+                {
+                    firstName: 'Karel',
+                    surname: 'Novak',
+                    birthdate: '10. 5. 1986',
+                    superpower: 'fir'
+                }
+            ]);
+            /*$http.get('url', {}, function(data){
                 if( ! data){
                     return reject();
                 }
                 
                 return resolve(data);
-            });
+            });*/
         });
     };
 
     cosmonautService.removeCosmonaut = function(index){
         return $q(function(resolve, reject){
-            $http.post('', index, function(data){
+            $http.post('url', index, function(data){
                 if( ! data){
                     return reject();
                 }
