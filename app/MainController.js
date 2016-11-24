@@ -25,7 +25,7 @@ angular.module('main').controller('Main', function($scope, CosmonautService, $md
 		CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push($scope.cosmonaut));
 	};
 
-	$scope.removeCosmonaut = function(cosmonaut){
+	$scope.removeCosmonaut = function(index){
 		var confirm = $mdDialog.confirm()
 		    .title('Smazat kosmonauta')
 		    .textContent('Opravdu chcete kosmonauta smazat?')
@@ -36,6 +36,10 @@ angular.module('main').controller('Main', function($scope, CosmonautService, $md
 		$mdDialog.show(confirm).then(function() {
     		$scope.cosmonauts.splice(cosmonaut, 1)
     	});
+	};
+
+	$scope.isFormValid = function(form) {
+		return form.$valid;
 	};
 
 	function getAllCosmonauts(){

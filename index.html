@@ -9,28 +9,31 @@
   <body ng-controller="Main" ng-cloak>
     <md-card class="cosmonaut-form-container">
       <div layout="column" ng-cloak class="md-inline-form">
-        <h3 class="md-headline">Elektronická evidence kosmonautů</h3>
+        <h3 class="md-headline title">Elektronická evidence kosmonautů</h3>
         <md-content layout-padding>
+          <div class="form-container" ng-form="formCosmonaut" novalidate>
             <form name="cosmonautForm">
-              <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                   <label>First name</label>
-                  <input ng-model="cosmonaut.firstName" flex-gt-sm>
+                  <input ng-model="cosmonaut.firstName" flex-gt-sm required>
                 </md-input-container>
-              </div>
-              <md-input-container class="md-block" flex-gt-sm>
-                <label>Surname</label>
-                <input ng-model="cosmonaut.surname">
-              </md-input-container>
-              <md-input-container class="md-block" flex-gt-sm>
-                <label>Datum narození</label>
-                <input ng-model="cosmonaut.birthdate">
-              </md-input-container>
-              <md-input-container class="md-block" flex-gt-sm>
-                <label>Superschopnost</label>
-                <input ng-model="cosmonaut.superpower">
+              <!--<div layout-gt-sm="row">-->
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Surname</label>
+                  <input ng-model="cosmonaut.surname" required>
+                </md-input-container>
+              <!--</div>-->
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Datum narození</label>
+                  <input ng-model="cosmonaut.birthdate" required>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label>Superschopnost</label>
+                  <input ng-model="cosmonaut.superpower" required>
+                </md-input-container>      
             </form>
-            <md-button ng-click="addNewCosmonaut()">Přidat</md-button>
+          </div>
+            <md-button ng-class="{'invalid': ! isFormValid(formCosmonaut)}" ng-click="isFormValid(formCosmonaut) && addNewCosmonaut()">Přidat</md-button>
         </md-content>
       </div>
       <div>
@@ -50,7 +53,7 @@
                 <td>{{cosmonaut.surname}}</td>
                 <td>{{cosmonaut.birthdate}}</td>
                 <td>{{cosmonaut.superpower}}</td>
-                <td><md-button ng-click="removeCosmonaut(cosmonaut)">Odebrat</md-button></td>
+                <td><md-button ng-click="removeCosmonaut($index)">Odebrat</md-button></td>
             </tr>
           </tbody>
         </table>
@@ -68,6 +71,6 @@
 
     <script src="app/app.js"></script>
     <script src="app/MainController.js"></script>
-    <script src="app/MainService.js"></script>
+    <script src="app/CosmonautService.js"></script>
   </body>
 </html>

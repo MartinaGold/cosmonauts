@@ -1,11 +1,11 @@
 var app = angular.module('main');
 
-app.factory('CosmonautService', function($http){
+app.factory('CosmonautService', function($http, $q){
 	var cosmonautService = {};
 
 	cosmonautService.addNewCosmonaut = function (cosmonaut){
 		return $q(function(resolve, reject){
-            resolve(data);
+            resolve();
             /*$http.post('', cosmonaut, function (data) {
                 if( ! data){
                     return reject();
