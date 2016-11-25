@@ -22,13 +22,13 @@ app.factory('CosmonautService', function($http, $q){
                 {
                     firstName: 'Karel',
                     surname: 'Novak',
-                    birthdate: '10. 5. 1986',
+                    birthdate: '10.5.1986',
                     superpower: 'fire'
                 },
                 {
                     firstName: 'Karel',
                     surname: 'Novak',
-                    birthdate: '10. 5. 1986',
+                    birthdate: '10.5.1986',
                     superpower: 'fire'
                 }
             ]);
@@ -45,7 +45,7 @@ app.factory('CosmonautService', function($http, $q){
     cosmonautService.removeCosmonaut = function(cosmonautId){
         return $q(function(resolve, reject){
             resolve();
-            /*$http.post('url', index, function(data){
+            /*$http.delete('url', index, function(data){
                 if( ! data){
                     return reject();
                 }

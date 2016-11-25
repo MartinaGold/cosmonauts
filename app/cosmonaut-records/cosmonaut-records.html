@@ -8,25 +8,28 @@
               <label>First name</label>
               <input ng-model="cosmonaut.firstName" flex-gt-sm required>
             </md-input-container>
+
             <md-input-container class="md-block" flex-gt-sm>
               <label>Surname</label>
               <input ng-model="cosmonaut.surname" required>
             </md-input-container>
+
             <md-input-container class="md-block" flex-gt-sm>
               <label>Datum narození</label>
               <input ng-model="cosmonaut.birthdate" ng-pattern="/\d{2}\.\d{2}\.\d{4}/g" placeholder="01.05.1990" required>
             </md-input-container>
+            
             <md-input-container class="md-block" flex-gt-sm>
               <label>Superschopnost</label>
               <input ng-model="cosmonaut.superpower" required>
             </md-input-container>      
         </form>
       </div>
-        <md-button ng-disabled="! isFormValid(formCosmonaut)" class="md-primary" ng-click="isFormValid(formCosmonaut) && addNewCosmonaut()">Přidat</md-button>
+        <md-button ng-disabled="! isFormValid(formCosmonaut)" class="md-primary md-raised" ng-click="isFormValid(formCosmonaut) && addNewCosmonaut()">Přidat</md-button>
     </md-content>
   </div>
   <div>
-    <table class="table table-bordered table-hover table-striped">
+    <table class="table table-hover table-bordered">
       <thead>
         <tr>
             <th>Jméno</th>                   
@@ -42,7 +45,8 @@
             <td>{{cosmonaut.surname}}</td>
             <td>{{cosmonaut.birthdate}}</td>
             <td>{{cosmonaut.superpower}}</td>
-            <td><md-button class="md-warn" ng-click="removeCosmonaut($index)">Odebrat</md-button></td>
+            <td><md-icon md-svg-src="images/svg/ic_clear_black_24px.svg" class="material-icons" ng-click="removeCosmonaut($index)"></md-icon></td>
+            
         </tr>
       </tbody>
     </table>
