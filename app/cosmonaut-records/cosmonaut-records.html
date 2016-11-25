@@ -4,13 +4,13 @@
     <md-content layout-padding>
       <form name="formCosmonaut" novalidate>
           <md-input-container class="md-block" flex-gt-sm>
-            <label>First name</label>
-            <input placeholder="Karel" ng-model="cosmonaut.firstName" flex-gt-sm required>
+            <label>Jméno</label>
+            <input type="text" placeholder="Karel" ng-model="cosmonaut.firstName" flex-gt-sm required>
           </md-input-container>
 
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Surname</label>
-            <input placeholder="Novák" ng-model="cosmonaut.surname" required>
+            <label>Příjmení</label>
+            <input type="text" placeholder="Novák" ng-model="cosmonaut.surname" required>
           </md-input-container>
 
           <md-input-container class="md-block" flex-gt-sm>
@@ -20,7 +20,7 @@
           
           <md-input-container class="md-block" flex-gt-sm>
             <label>Superschopnost</label>
-            <input placeholder="Rychlost" ng-model="cosmonaut.superpower" required>
+            <input type="text" placeholder="Rychlost" ng-model="cosmonaut.superpower" required>
           </md-input-container>      
       </form>
       <md-button ng-disabled="! isFormValid(formCosmonaut)" class="md-primary md-raised" ng-click="isFormValid(formCosmonaut) && addNewCosmonaut()">Přidat</md-button>
