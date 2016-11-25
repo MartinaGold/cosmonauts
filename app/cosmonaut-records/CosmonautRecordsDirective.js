@@ -13,7 +13,9 @@ angular.module('main').directive('cosmonautRecords', function(){
 			initAllCosmonauts();
 
 			$scope.addNewCosmonaut = function(){
-				CosmonautService.addNewCosmonaut($scope.cosmonaut).then($scope.cosmonauts.push(angular.copy($scope.cosmonaut)));
+				CosmonautService.addNewCosmonaut($scope.cosmonaut).then(function(){
+					$scope.cosmonauts.push(angular.copy($scope.cosmonaut));
+				});
 			};
 
 			$scope.removeCosmonaut = function(index){

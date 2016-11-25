@@ -45,7 +45,7 @@ app.factory('CosmonautService', function($http, $q){
     cosmonautService.removeCosmonaut = function(cosmonautId){
         return $q(function(resolve, reject){
             resolve();
-            /*$http.delete('url', index, function(data){
+            /*$http.delete('url', cosmonautId, function(data){
                 if( ! data){
                     return reject();
                 }

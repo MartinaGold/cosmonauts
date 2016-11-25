@@ -14,18 +14,11 @@ md-content {
 	margin-left: 17px;
 }
 
-.form-container {
-	
-}
-
 .cosmonaut-form-container {
 	width: 700px;
 	margin-right: auto;
 	margin-left: auto;
 	background-color: white;
-}
-
-.invalid {
 }
 
 .invalid:hover {
