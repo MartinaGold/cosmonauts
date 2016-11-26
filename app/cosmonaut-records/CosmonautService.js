@@ -6,7 +6,7 @@ app.factory('CosmonautService', function($http, $q){
 	cosmonautService.addNewCosmonaut = function (cosmonaut){
 		return $q(function(resolve, reject){
             resolve();
-            /*$http.post('url', cosmonaut, function (data) {
+            /*$http.post('url', cosmonaut).then(function (data) {
                 if( ! data){
                     return reject();
                 }
@@ -32,7 +32,7 @@ app.factory('CosmonautService', function($http, $q){
                     superpower: 'fire'
                 }
             ]);
-            /*$http.get('url', {}, function(data){
+            /*$http.get('url').then(function(data){
                 if( ! data){
                     return reject();
                 }
@@ -45,7 +45,7 @@ app.factory('CosmonautService', function($http, $q){
     cosmonautService.removeCosmonaut = function(cosmonautId){
         return $q(function(resolve, reject){
             resolve();
-            /*$http.delete('url', cosmonautId, function(data){
+            /*$http.delete('url', cosmonautId).then(function(data){
                 if( ! data){
                     return reject();
                 }
