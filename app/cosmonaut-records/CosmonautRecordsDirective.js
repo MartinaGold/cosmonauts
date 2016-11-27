@@ -22,7 +22,6 @@ angular.module('main').directive('cosmonautRecords', function(){
 				var confirm = $mdDialog.confirm()
 				    .title('Smazat kosmonauta')
 				    .textContent('Opravdu chcete kosmonauta smazat?')
-				    .ariaLabel('Lucky day')
 				    .ok('Ano')
 				    .cancel('Ne');
 
